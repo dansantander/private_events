@@ -1,0 +1,11 @@
+<%= flash[:message] %>
+
+<h1>View for session</h1>
+
+ <%= form_for :session, url:signin_path do |f|%>
+  <%= f.label :private_event_user_id, 'User ID'%>
+  <%= f.text_field :private_event_user_id, class:'form-control' %>
+
+  <%= f.submit "Submit" %>
+<% end %>
+

@@ -1,0 +1,11 @@
+<h2>User</h2>
+
+  <p>
+    <strong> Name:</strong>
+    <%= @user.name %>
+  </p>
+
+ <%= form_for :session, url:logout_path do |f|%>
+
+  <%= f.submit "Logout", method: :delete %>
+<% end %>
