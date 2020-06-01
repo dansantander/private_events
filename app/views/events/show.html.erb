@@ -1,0 +1,16 @@
+<p>Event</p>
+
+<p>
+  <%= @event.title  %>
+</p>
+<p>
+  <%= @event.event_date  %>
+</p>
+<small>
+  Created By: <%= @event.user.name %>
+</small>
+
+<p>
+  <%= link_to 'All events', events_path %>
+</p>
+

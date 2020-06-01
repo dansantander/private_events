@@ -5,6 +5,16 @@
     <%= @user.name %>
   </p>
 
+   <ul>
+      <strong> Events:</strong>
+      <% @user.events.each do |e| %>
+        <li>
+          <p><%= e.title %></p>
+          <p><%= e.event_date %></p>
+        </li>
+      <% end %>
+    </ul>
+
  <%= form_for :session, url:logout_path do |f|%>
 
   <%= f.submit "Logout", method: :delete %>

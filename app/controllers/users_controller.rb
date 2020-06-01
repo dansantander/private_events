@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   
     if @user.save
       redirect_to user_path(@user)
-      signin(@user.id)
+      session[:private_event_user_id] = @user.id
     else
       render 'new'
     end
