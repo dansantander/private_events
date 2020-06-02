@@ -4,7 +4,18 @@
 </div>
 
 <ul>
-  <% @events.each do |e| %>
+  <strong>Upcoming Events:</strong>
+  <% upcoming.each do |e| %>
+    <li>
+      <p> <%=link_to e.title, event_path(e) %></p>
+      <small><%= e.event_date %></small>
+    </li>
+  <% end %>
+</ul>
+
+<ul>
+  <strong>Past Events:</strong>
+  <% past.each do |e| %>
     <li>
       <p> <%=link_to e.title, event_path(e) %></p>
       <small><%= e.event_date %></small>

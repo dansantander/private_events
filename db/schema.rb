@@ -14,8 +14,8 @@ ActiveRecord::Schema.define(version: 2020_06_01_210640) do
 
   create_table "events", force: :cascade do |t|
     t.string "title", default: "", null: false
-    t.string "event_date", default: "", null: false
-    t.integer "user_id"
+    t.date "event_date", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_events_on_user_id"

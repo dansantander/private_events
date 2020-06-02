@@ -1,18 +1,27 @@
 <h2>User</h2>
-
   <p>
     <strong> Name:</strong>
     <%= @user.name %>
   </p>
   <%= link_to 'Create Event', new_event_path, class: 'btn' %>
    <ul>
-      <strong> Events:</strong>
-      <% @user.events.each do |e| %>
+      <strong>Upcoming Events:</strong>
+      <% @upcoming_event.each do |e| %>
         <li>
           <p><%= link_to e.title, event_path(e) %></p>
           <p><%= e.event_date %></p>
         </li>
-      <% end %>
+        <% end %>
+    </ul>
+
+    <ul>
+      <strong>Previous Events:</strong>
+      <% @prev_event.each do |e| %>
+        <li>
+          <p><%= link_to e.title, event_path(e) %></p>
+          <p><%= e.event_date %></p>
+        </li>
+        <% end %>
     </ul>
 
  <%= form_for :session, url:logout_path do |f|%>
