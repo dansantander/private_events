@@ -1,9 +1,12 @@
-<p>All Events</p>
+<div class="event-header">
+  <h1>All events</h1>
+  <%= link_to 'Create Event', new_event_path, class: 'btn' %>
+</div>
 
 <ul>
   <% @events.each do |e| %>
     <li>
-      <p> <%= e.title %></p>
+      <p> <%=link_to e.title, event_path(e) %></p>
       <small><%= e.event_date %></small>
     </li>
   <% end %>

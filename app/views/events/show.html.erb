@@ -1,16 +1,27 @@
-<p>Event</p>
 
-<p>
+<h1>
   <%= @event.title  %>
-</p>
+</h1>
 <p>
-  <%= @event.event_date  %>
+  Event date: <%= @event.event_date  %>
 </p>
 <small>
   Created By: <%= @event.user.name %>
 </small>
 
+<h2>
+  Attending:
+</h2>
+
+<ul>
+  <% @event.invitees.each do |user| %>
+    <li>
+      <%= user.name %>
+    </li>
+  <% end %>
+</ul>
+
 <p>
-  <%= link_to 'All events', events_path %>
+  <%= link_to '< All events', events_path %>
 </p>
 

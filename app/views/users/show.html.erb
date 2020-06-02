@@ -4,12 +4,12 @@
     <strong> Name:</strong>
     <%= @user.name %>
   </p>
-
+  <%= link_to 'Create Event', new_event_path, class: 'btn' %>
    <ul>
       <strong> Events:</strong>
       <% @user.events.each do |e| %>
         <li>
-          <p><%= e.title %></p>
+          <p><%= link_to e.title, event_path(e) %></p>
           <p><%= e.event_date %></p>
         </li>
       <% end %>
