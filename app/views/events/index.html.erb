@@ -5,7 +5,7 @@
 
 <ul>
   <strong>Upcoming Events:</strong>
-  <% upcoming.each do |e| %>
+  <% @upcoming.each do |e| %>
     <li>
       <p> <%=link_to e.title, event_path(e) %></p>
       <small><%= e.event_date %></small>
@@ -15,7 +15,7 @@
 
 <ul>
   <strong>Past Events:</strong>
-  <% past.each do |e| %>
+  <% @past.each do |e| %>
     <li>
       <p> <%=link_to e.title, event_path(e) %></p>
       <small><%= e.event_date %></small>
