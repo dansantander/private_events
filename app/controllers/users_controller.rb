@@ -35,7 +35,6 @@ class UsersController < ApplicationController
     end
   end
 
-
 =begin 
   def sign_in
     @user = User.find(params[:id])
@@ -60,13 +59,8 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
 
-
   private
-
-
   def user_params
     params.require(:user).permit(:name, :email)
   end
-
-
 end

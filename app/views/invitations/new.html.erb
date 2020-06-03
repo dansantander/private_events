@@ -1,0 +1,16 @@
+<%= flash[:message] %>
+
+<h1>Invite A User To An Event</h1>
+<p><<<<<<<<<<<<<<<>>>>>>>>>>>>>>></p>
+
+ <%= form_for :invitation, url:invitations_path do |f|%>
+
+  <%= f.label :invitee_id, 'Invitee ID'%>
+  <%= f.text_field :invitee_id, class:'form-control' %> <br/>
+
+  <%= f.label :attended_event_id, 'Event ID'%>
+  <%= f.text_field :attended_event_id, class:'form-control' %> <br/>
+
+  <%= f.submit "Invite User" %>
+<% end %>
+
