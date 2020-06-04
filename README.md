@@ -10,6 +10,21 @@ In this project we demonstrate working with ActiveRecord's associations (one to 
   <li>A single event lists users attending to that specific event</li>
 </ul>
 
+## Endpoints covered in this project
+  ## users & sessions
+  - POST localhost:3000 /users/new  - For Signing up a new client.
+  - POST localhost:3000 /users/user_id - For viewing a user's dashboard/profile.
+  - GET localhost:3000 /signin - For logging in a user.
+  - POST localhost:3000 /logout - For signing out a user.
+
+## events
+  - POST localhost:3000 /events/new - For creating a new event.
+  - GET localhost:3000 /events  - For viewing all events.
+
+  ## invitations
+  - POST localhost:3000 /invitations/new - For inviting users to an event.
+  - GET  localhost:3000 /invitations - For viewing both past and upcoming invitations.
+
 ## Installation
   - Ensure the project dependencies are installed
   - clone the repo the command `git clone git@github.com:dansantander/private_events.git`
