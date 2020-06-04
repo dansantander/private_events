@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe User do
-  
   describe 'GET /signin' do
     it 'should show the login page' do
       get signin_path

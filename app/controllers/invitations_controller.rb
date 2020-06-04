@@ -9,7 +9,7 @@ class InvitationsController < ApplicationController
 
   def create
     @invitation = Invitation.new(invitation_params)
-  
+
     if @invitation.save
       flash[:success] = 'Invitation Successful !!'
       redirect_to invitations_path(@invitation)
@@ -19,6 +19,7 @@ class InvitationsController < ApplicationController
   end
 
   private
+
   def invitation_params
     params.require(:invitation).permit(:invitee_id, :attended_event_id)
   end

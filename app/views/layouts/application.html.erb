@@ -20,7 +20,11 @@
 
     <div class="links">
       <% if current_user %>
-        <p class = "navp"><%= link_to 'Logout', logout_path, method: :delete %></p>
+
+        <%= form_for :session, url:logout_path do |f|%>
+          <%= f.submit "Logout", method: :delete %>
+        <% end %>
+
       <% else %>
         <p class = "navp"><%= link_to 'Sign Up', new_user_path %></p>
         <p class = "navp"><%= link_to 'Sign In', signin_path %></p>

@@ -21,4 +21,3 @@ class SessionsController < ApplicationController
     redirect_to signin_path
   end
 end
-
