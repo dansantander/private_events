@@ -1,24 +1,52 @@
-# README
+# Private Events
+In this project we demonstrate working with ActiveRecord's associations (one to many, many to many).
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Features
 
-Things you may want to cover:
+<ul>
+  <li>A client can see all Events and create an account</li>
+  <li>Users can publish events and invite other users to events created</li>
+  <li>Events are displayed in Past Events and Upcoming Events categories</li>
+  <li>A single event lists users attending to that specific event</li>
+</ul>
 
-* Ruby version
+## Installation
+  - Ensure the project dependencies are installed
+  - clone the repo the command `git clone git@github.com:dansantander/private_events.git`
+  - Navigate to the project folder
+  - run `bundle` or `bundle install`
 
-* System dependencies
+## Getting Started
+  - Head over to your server on localhost:3000
+  - Create a new User using the Signup form and start a session by Signing in.
+  - Create a new Event with a Title and a Date.
+  - Make an Invitation for other Users to attend the Event you created.
 
-* Configuration
+## Built With
 
-* Database creation
+  - Ruby 2.7 <br>
+  - Ruby on Rails 5.2 <br>
+  - HTML forms, Rails form_tag and form_for
+  - Git, Github and VScode <br>
 
-* Database initialization
+## Authors
 
-* How to run the test suite
+👤 **Daniel Santander**
 
-* Services (job queues, cache servers, search engines, etc.)
+- Github: [@dansantander](https://github.com/dansantander)
+- Linkedin: [Daniel Santander](https://www.linkedin.com/in/daniel-santander)
+- Twitter: [@dansantandr](https://twitter.com/dansantandr)
 
-* Deployment instructions
+👤 **Alfred Ezaka**
 
-* ...
+- Github: [@codecell](https://github.com/codecell)
+- Twitter: [@the_codecell](https://twitter.com/the_codecell)
+- Linkedin: [ezaka alfred](https://www.linkedin.com/in/alfrednoble/)
+
+### Contributing
+
+Contributions, issues and feature requests are welcome! [issues page](issues/).
+
+### License
+
+<strong>Creative Commons • May 2020</strong>

@@ -1,5 +1,4 @@
 require 'rails_helper'
-require_relative '../app/models/user'
 
 RSpec.describe User do
  subject { described_class.create(name: 'Dan', email: 'dan@domain.com') }

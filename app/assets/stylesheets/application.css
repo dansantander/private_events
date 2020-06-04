@@ -14,19 +14,48 @@
  *= require_self
  */
 
+
  body {
   background-color: #fff;
   color: #333;
-  margin: 33px;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
 }
 
-h1 {
-  color: #336fcb
+.main {
+  padding: 20px 40px ;
 }
 
-h2 {
-  color: #e14b7a
+nav {
+  background-color: #454545;
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  height: 3rem;
+  border-radius: 5px;
 }
+
+a {
+  text-decoration: none;
+}
+
+a:visited {color:rgb(150, 150, 150);} /* Visited link    */
+a:hover {color:rgb(29, 29, 29);}   /* Mouse over link */
+a:active {color:#656464;} 
+
+h1, h2 {
+  color: #f7cc22
+}
+
+.links {
+  display: flex;
+  align-items: center;
+}
+
+.navp {
+  font-weight: 600;
+  margin: 0 10px;
+}
+
