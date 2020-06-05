@@ -10,7 +10,8 @@
   <% @upcoming.each do |e| %>
     <li>
       <h3> <%=link_to e.title, event_path(e) %></h3>
-      <small><%= e.event_date %></small>
+      <small><%= e.event_date %></small><br>
+      <small>Created By:<%= e.user.name %></small>
     </li>
   <% end %>
 </ul>
@@ -20,7 +21,8 @@
   <% @past.each do |e| %>
     <li>
       <h3> <%=link_to e.title, event_path(e) %></h3>
-      <small><%= e.event_date %></small>
+      <small><%= e.event_date %></small><br>
+      <small>Created By:<%= e.user.name %></small>
     </li>
   <% end %>
 </ul>

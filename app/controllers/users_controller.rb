@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     user_invitations = @user.invitations
 
+    @myevents = []
     @prev_event = []
     @upcoming_event = []
 
@@ -16,6 +17,11 @@ class UsersController < ApplicationController
 
       @prev_event << event if event.event_date.past?
       @upcoming_event << event unless event.event_date.past?
+    end
+
+    @events = Event.all
+    @events.each do |ev|
+      @myevents << ev if ev.user_id == session[:private_event_user_id]
     end
   end
 

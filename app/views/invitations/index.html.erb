@@ -11,8 +11,8 @@
   <% @invitations.each do |iv| %>
     <li>
       <p>Invitation ID: <%=link_to iv.id, invitation_path(iv) %></p>
-      <small>User ID: <%= iv.invitee_id %></small>
-      <small>Event ID: <%= iv.attended_event_id %></small>
+      <small>User Name: <%= iv.invitee_id %></small>
+      <small>Event Title: <%= iv.attended_event_id %></small>
     </li>
   <% end %>
 </ul>

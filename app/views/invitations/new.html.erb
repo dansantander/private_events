@@ -5,12 +5,10 @@
 
  <%= form_for :invitation, url:invitations_path do |f|%>
 
-  <%= f.label :invitee_id, 'Invitee ID'%>
-  <%= f.text_field :invitee_id, class:'form-control' %> <br/>
 
-  <%= f.label :attended_event_id, 'Event ID'%>
-  <%= f.text_field :attended_event_id, class:'form-control' %> <br/>
+  <%= f.select :invitee_id, User.all.collect { |p| [ p.name, p.id ] }, include_blank: true %>
+
+  <%= f.select :attended_event_id, Event.all.collect { |p| [ p.title, p.id ] }, include_blank: true %>
 
   <%= f.submit "Invite User" %>
 <% end %>
-

@@ -1,9 +1,27 @@
 <h1>User</h1>
-  <p>
-    <strong> Name:</strong>
-    <%= @user.name %>
-  </p>
+<p>
+  <strong> Name:</strong>
+  <%= @user.name %>
+</p>
+<p>
+  <strong> User Id:</strong>
+  <%= @user.id %>
+</p>
+
   <%= link_to 'Create Event', new_event_path, class: 'btn' %>
+
+
+   <ul>
+      <strong>Created Events:</strong>
+
+      <% @myevents.each do |e| %>
+        <li>
+          <p><%= link_to e.title, event_path(e) %></p>
+          <p><%= e.event_date %></p>
+        </li>
+        <% end %>
+    </ul>
+
    <ul>
       <strong>Upcoming Events:</strong>
       <% @upcoming_event.each do |e| %>
