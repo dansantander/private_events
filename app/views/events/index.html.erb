@@ -11,7 +11,7 @@
     <li>
       <h3> <%=link_to e.title, event_path(e) %></h3>
       <small><%= e.event_date %></small><br>
-      <small>Created By:<%= e.user.name %></small>
+      <small>Created By:<%= e.creator.name %></small>
     </li>
   <% end %>
 </ul>
@@ -22,7 +22,7 @@
     <li>
       <h3> <%=link_to e.title, event_path(e) %></h3>
       <small><%= e.event_date %></small><br>
-      <small>Created By:<%= e.user.name %></small>
+      <small>Created By:<%= e.creator.name %></small>
     </li>
   <% end %>
 </ul>

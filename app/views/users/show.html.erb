@@ -8,7 +8,8 @@
   <%= @user.id %>
 </p>
 
-  <%= link_to 'Create Event', new_event_path, class: 'btn' %>
+  <%= link_to 'Create Event', new_event_path, class: 'btn' %><br>
+  <%= link_to 'Invite a User to an Event', new_invitation_path, class: 'btn' %>
 
 
    <ul>
@@ -32,8 +33,6 @@
         <% end %>
     </ul>
 
-<p><<<<<<<<<<<<<<<>>>>>>>>>>>>>>></p>
-
     <ul>
       <strong>Previous Events:</strong>
       <% @prev_event.each do |e| %>
@@ -44,11 +43,16 @@
         <% end %>
     </ul>
 
-<p><<<<<<<<<<<<<<<>>>>>>>>>>>>>>></p>
-
-<%= link_to 'Invite A user to an Event', new_invitation_path, class: 'btn' %>
-
-<p><<<<<<<<<<<<<<<>>>>>>>>>>>>>>></p>
+    <ul>
+      <strong>Pending Invitations:</strong>
+      <% @unconfirmed_invitations.each do |e| %>
+        <li>
+          <p><%= link_to e.id, event_path(e) %></p>
+          <p><%#= e.event_date %></p>
+          <p><%= link_to "Attend", invitation_path(e) %></p>
+        </li>
+        <% end %>
+    </ul>
 
 <%= form_for :session, url:logout_path do |f|%>
   <%= f.submit "Logout", method: :delete %>

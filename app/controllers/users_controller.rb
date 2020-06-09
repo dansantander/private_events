@@ -10,19 +10,24 @@ class UsersController < ApplicationController
     @myevents = []
     @prev_event = []
     @upcoming_event = []
+    @unconfirmed_invitations = []
 
     user_invitations.each do |invit|
       event_id = invit.attended_event_id
       event = Event.find(event_id)
+      confirmed = invit.confirmation
 
-      @prev_event << event if event.event_date.past?
-      @upcoming_event << event unless event.event_date.past?
+      @prev_event << event if event.event_date.past? && confirmed
+      @upcoming_event << event if !event.event_date.past? && confirmed
+      @unconfirmed_invitations << invit if confirmed == false
+
     end
 
     @events = Event.all
     @events.each do |ev|
-      @myevents << ev if ev.user_id == session[:private_event_user_id]
+      @myevents << ev if ev.creator_id == session[:private_event_user_id]
     end
+
   end
 
   def new
@@ -39,18 +44,6 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
-
-  #
-  #   def sign_in
-  #     @user = User.find(params[:id])
-  #     if @user
-  #       session[:current_user_id] = @user.id
-  #     end
-  #   end
-  #
-  #   def logout
-  #       session[:current_user_id] = ""
-  #   end
 
   def edit
     @user = User.find(params[:id])

@@ -14,7 +14,7 @@ class EventsController < ApplicationController
   def create
     user_id = session[:private_event_user_id]
     @user = User.find(user_id)
-    @event = @user.events.create(event_params)
+    @event = @user.created_events.create(event_params)
 
     if @event.save
       redirect_to events_path(@event)
@@ -25,6 +25,18 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by(id: params[:id])
-    # @event = Event.find(params[:id])
+    @users = User.all
+    @confirmed_attendants_id = []
+    @attendants = []
+
+    @event.invitations.each do | invitation |
+      @confirmed_attendants_id << invitation.invitee_id if invitation.confirmation == true
+    end
+
+    @users.each do |u|
+      @confirmed_attendants_id.each do |ca|
+        @attendants << u.name if u.id == ca
+      end
+    end
   end
 end

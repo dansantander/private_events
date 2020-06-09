@@ -1,12 +1,19 @@
 class InvitationsController < ApplicationController
+  include  InvitationsHelper
+
   def index
     @invitations = Invitation.all
   end
 
   def new
     @invitation = Invitation.new
-    @users = User.all
-    @events = Event.all
+    @user = session[:private_event_user_id]
+  end
+  
+  def show
+    @invitation = Invitation.find(params[:id])
+    event_id = @invitation.attended_event_id
+    @event = Event.find(event_id)
   end
 
   def create
@@ -19,6 +26,15 @@ class InvitationsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def update
+    @invitation = Invitation.find(params[:id])
+    puts "*****------#{@invitation.confirmation}-------****"
+    @invitation.update_attribute(:confirmation, params[:confirmation] = true)
+    @event = @invitation.attended_event_id
+    
+    redirect_to event_path(@event)
   end
 
   private

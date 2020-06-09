@@ -1,14 +1,11 @@
 <%= flash[:message] %>
 
-<h1>Invite A User To An Event</h1>
-<p><<<<<<<<<<<<<<<>>>>>>>>>>>>>>></p>
+<h1>Invite User to Event</h1>
 
  <%= form_for :invitation, url:invitations_path do |f|%>
 
-
-  <%= f.select :invitee_id, User.all.collect { |p| [ p.name, p.id ] }, include_blank: true %>
-
-  <%= f.select :attended_event_id, Event.all.collect { |p| [ p.title, p.id ] }, include_blank: true %>
+  <%= f.select :attended_event_id, Event.all.collect { |e| [ e.title, e.id ] if e.creator_id == @user }.select(&:present?), {:prompt => 'Select event'} %>
+  <%= f.select :invitee_id, User.all.collect { |u| [ u.name, u.id ] if u.id != @user }.select(&:present?), {:prompt => 'Select invitee'} %>
 
   <%= f.submit "Invite User" %>
 <% end %>

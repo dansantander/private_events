@@ -6,24 +6,20 @@
   Event date: <%= @event.event_date  %>
 </p>
 <small>
-  Created By: <%= @event.user.name %>
+  Created By: <%= @event.creator.name %>
 </small>
 
 <h2>
-  Attending:
+  Attendants:
 </h2>
 
 <ul>
-  <% @event.invitees.each do |user| %>
+  <% @attendants.each do |name| %>
     <li>
-      <%= user.name %>
+      <%= name %>
     </li>
   <% end %>
 </ul>
-
-<p>
-  <%= link_to 'Invite A user to an Event', new_invitation_path, class: 'btn' %>
-</p>
 
 <p>
   <%= link_to '< All events', events_path %>

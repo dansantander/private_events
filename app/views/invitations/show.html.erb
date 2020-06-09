@@ -1,0 +1,10 @@
+
+<h1>Confirm Invitation</h1>
+
+<h3>Event: <%=@event.title%></h3>
+<small>Date: <%=@event.event_date%></small><br>
+<br>
+<%= form_for(:invitations, url: invitation_path, method: :patch ) do |f| %>
+  <%= f.hidden_field :confirmation %>
+  <%= f.submit 'Attend' %>
+<% end %>
