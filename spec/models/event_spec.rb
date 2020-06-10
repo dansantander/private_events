@@ -7,7 +7,7 @@ RSpec.describe Event do
       title: 'new job offer',
       event_date: '2020-08-10',
       creator_id: test_user.id
-      )
+    )
   end
 
   describe 'validations' do
