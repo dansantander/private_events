@@ -59,3 +59,10 @@ h1, h2 {
   margin: 0 10px;
 }
 
+.flash{
+  background-color: rgb(201, 81, 113);
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 10px;
+}
+

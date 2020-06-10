@@ -9,6 +9,12 @@
   Created By: <%= @event.creator.name %>
 </small>
 
+<% if @session_id == @event.creator_id %>
+  <p>
+    <%= link_to 'Invite Users', new_invitation_path, class: 'btn' %>
+  </p>
+<% end %>
+
 <h2>
   Attendants:
 </h2>
