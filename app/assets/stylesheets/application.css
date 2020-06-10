@@ -41,12 +41,14 @@ a {
   text-decoration: none;
 }
 
-a:visited {color:rgb(150, 150, 150);} /* Visited link    */
-a:hover {color:rgb(29, 29, 29);}   /* Mouse over link */
-a:active {color:#656464;} 
+.off-white {color:#efefef;} /* Visited link    */
+
 
 h1, h2 {
   color: #f7cc22
+}
+.gree-highlight {
+  color: darkgreen;
 }
 
 .links {

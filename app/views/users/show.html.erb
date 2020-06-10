@@ -8,12 +8,12 @@
   <%= @user.id %>
 </p>
 
-  <%= link_to 'Create Event', new_event_path, class: 'btn' %><br>
+  <%= link_to 'Create Event', new_event_path, class: 'btn gree-highlight' %><br>
   <%= link_to 'Invite a User to an Event', new_invitation_path, class: 'btn' %>
 
 
    <ul>
-      <strong>Created Events:</strong>
+      <strong>Events Created By Me:</strong>
 
       <% @myevents.each do |e| %>
         <li>
@@ -47,9 +47,9 @@
       <strong>Pending Invitations:</strong>
       <% @unconfirmed_invitations.each do |e| %>
         <li>
-          <p><%= link_to e.id, event_path(e) %></p>
+          <p>Invitation ID: <%= link_to e.id, event_path(e) %></p>
           <p><%#= e.event_date %></p>
-          <p><%= link_to "Attend", invitation_path(e) %></p>
+          <p><%= link_to "Accept Invitation", invitation_path(e) %></p>
         </li>
         <% end %>
     </ul>

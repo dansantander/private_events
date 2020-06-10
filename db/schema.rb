@@ -10,29 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_01_210640) do
-
-  create_table "events", force: :cascade do |t|
-    t.string "title", default: "", null: false
-    t.date "event_date", null: false
-    t.integer "creator_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+ActiveRecord::Schema.define(version: 20_200_601_210_640) do
+  create_table 'events', force: :cascade do |t|
+    t.string 'title', default: '', null: false
+    t.date 'event_date', null: false
+    t.integer 'creator_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "invitations", force: :cascade do |t|
-    t.integer "invitee_id", null: false
-    t.integer "attended_event_id", null: false
-    t.boolean "confirmation", default: false, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'invitations', force: :cascade do |t|
+    t.integer 'invitee_id', null: false
+    t.integer 'attended_event_id', null: false
+    t.boolean 'confirmation', default: false, null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "name", default: "", null: false
-    t.string "email", default: "", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'users', force: :cascade do |t|
+    t.string 'name', default: '', null: false
+    t.string 'email', default: '', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
-
 end

@@ -20,14 +20,12 @@ class UsersController < ApplicationController
       @prev_event << event if event.event_date.past? && confirmed
       @upcoming_event << event if !event.event_date.past? && confirmed
       @unconfirmed_invitations << invit if confirmed == false
-
     end
 
     @events = Event.all
     @events.each do |ev|
       @myevents << ev if ev.creator_id == session[:private_event_user_id]
     end
-
   end
 
   def new

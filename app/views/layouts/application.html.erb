@@ -11,10 +11,10 @@
 
   <nav>
     <div class="links"> 
-      <p class = "navp"><%= link_to 'Events', events_path %></p>
+      <p class = "navp"><%= link_to 'Events', events_path, class: 'off-white' %></p>
       <% if current_user %>
-        <p class = "navp"> <%= link_to 'Create Event', new_event_path %></p>
-        <p class ="navp"> <%= link_to 'Profile', user_path(current_user) %></p>
+        <p class = "navp"> <%= link_to 'Create Event', new_event_path, class: 'off-white' %></p>
+        <p class ="navp"> <%= link_to 'Profile', user_path(current_user), class: 'off-white' %></p>
       <% end %>
     </div>
 

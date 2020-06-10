@@ -1,6 +1,4 @@
 class InvitationsController < ApplicationController
-  include  InvitationsHelper
-
   def index
     @invitations = Invitation.all
   end
@@ -9,7 +7,7 @@ class InvitationsController < ApplicationController
     @invitation = Invitation.new
     @user = session[:private_event_user_id]
   end
-  
+
   def show
     @invitation = Invitation.find(params[:id])
     event_id = @invitation.attended_event_id
@@ -20,25 +18,29 @@ class InvitationsController < ApplicationController
     @invitation = Invitation.new(invitation_params)
     @event = @invitation.attended_event_id
 
-    if @invitation.save
-      flash.now[:message] = 'Invitation Successful !!'
-      redirect_to events_path(@event)
+    already_invited = Invitation.find_by_sql "
+    SELECT id, invitee_id, attended_event_id FROM invitations
+    WHERE invitee_id = #{@invitation.invitee_id} AND
+    attended_event_id = #{@invitation.attended_event_id}"
+
+    if !already_invited.empty?
+      flash.now[:message] = 'User has already been invited'
+      render 'new'
+      nil
     else
-      flash.notice = 'User already invited to this Event!'
-      redirect_to event_path(@event)
+      @invitation.save
+      flash.notice = 'Invitation Successful !!'
+      redirect_to events_path(@event)
     end
   end
 
   def update
     @invitation = Invitation.find(params[:id])
-    user_id = session[:private_event_user_id]
-
-    check_confirmed = @invitation.confirmation
 
     @invitation.update_attribute(:confirmation, params[:confirmation] = true)
     @event = @invitation.attended_event_id
 
-    redirect_to event_path(@event)  
+    redirect_to event_path(@event)
   end
 
   private

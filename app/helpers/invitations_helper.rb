@@ -1,3 +1,2 @@
 module InvitationsHelper
-
 end

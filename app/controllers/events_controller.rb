@@ -17,7 +17,7 @@ class EventsController < ApplicationController
     @event = @user.created_events.create(event_params)
 
     if @event.save
-      redirect_to events_path(@event)
+      redirect_to event_path(@event)
     else
       flash.now
       render 'new'
@@ -31,7 +31,7 @@ class EventsController < ApplicationController
     @confirmed_attendants_id = []
     @attendants = []
 
-    @event && @event.invitations.each do | invitation |
+    @event&.invitations&.each do |invitation|
       @confirmed_attendants_id << invitation.invitee_id if invitation.confirmation == true
     end
 
