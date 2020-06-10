@@ -21,10 +21,11 @@ class InvitationsController < ApplicationController
     @event = @invitation.attended_event_id
 
     if @invitation.save
-      flash[:success] = 'Invitation Successful !!'
-      redirect_to event_path(@event)
+      flash.now[:message] = 'Invitation Successful !!'
+      redirect_to events_path(@event)
     else
-      render 'new'
+      flash.notice = 'User already invited to this Event!'
+      redirect_to event_path(@event)
     end
   end
 

@@ -19,6 +19,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to events_path(@event)
     else
+      flash.now
       render 'new'
     end
   end
@@ -26,6 +27,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find_by(id: params[:id])
     @users = User.all
+    @session_id = session[:private_event_user_id]
     @confirmed_attendants_id = []
     @attendants = []
 
