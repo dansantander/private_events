@@ -33,7 +33,7 @@ RSpec.describe 'Main flow', type: :system do
       visit('/events/new')
       sleep 1
 
-      # Create New Event 
+      # Create New Event
       fill_in('event[title]', with: 'Freds Big Party')
       sleep 1
       fill_in('event[event_date]', with: Time.now + 1.month)
