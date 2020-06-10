@@ -29,7 +29,7 @@ class EventsController < ApplicationController
     @confirmed_attendants_id = []
     @attendants = []
 
-    @event.invitations.each do | invitation |
+    @event && @event.invitations.each do | invitation |
       @confirmed_attendants_id << invitation.invitee_id if invitation.confirmation == true
     end
 

@@ -1,13 +1,20 @@
+  <h1>
+    <%= link_to 'Create Event', new_event_path %>
+  </h1>
 
-<h1>
-  <%= @event.title  %>
-</h1>
-<p>
-  Event date: <%= @event.event_date  %>
-</p>
-<small>
-  Created By: <%= @event.creator.name %>
-</small>
+ <% if @event %>
+  <h1>
+    <%= @event.title  %>
+  </h1>
+  <p>
+    Event date: <%= @event.event_date  %>
+  </p>
+  <small>
+    Created By: <%= @event.creator.name %>
+  </small>
+<% else %>
+  <p>No Events Created Yet</p>
+<% end %>
 
 <h2>
   Attendants:

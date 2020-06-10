@@ -30,11 +30,14 @@ class InvitationsController < ApplicationController
 
   def update
     @invitation = Invitation.find(params[:id])
-    puts "*****------#{@invitation.confirmation}-------****"
+    user_id = session[:private_event_user_id]
+
+    check_confirmed = @invitation.confirmation
+
     @invitation.update_attribute(:confirmation, params[:confirmation] = true)
     @event = @invitation.attended_event_id
-    
-    redirect_to event_path(@event)
+
+    redirect_to event_path(@event)  
   end
 
   private
