@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Event do
-  
   let(:test_user) { User.create(name: 'Example User') }
   let(:subject) do
     described_class.new(
-    title: 'new job offer',
-    event_date: '2020-08-10',
-    creator_id: test_user.id)
+      title: 'new job offer',
+      event_date: '2020-08-10',
+      creator_id: test_user.id
+      )
   end
 
   describe 'validations' do

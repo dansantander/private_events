@@ -1,13 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe User do
-
   let(:test_user) { User.create(name: 'Example User') }
-  let(:subject) do 
+  let(:subject) do
     described_class.new(
       name: 'user_example',
       email: 'user@email.com'
-      )
+    )
   end
 
   describe 'validations' do
@@ -25,5 +24,4 @@ RSpec.describe User do
     it { should have_many(:created_events) }
     it { should have_many(:attended_events) }
   end
-
 end
