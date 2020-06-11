@@ -1,0 +1,28 @@
+
+  <h1>All events</h1>
+  <% if current_user %>
+    <%= link_to 'Create Event', new_event_path, class: 'btn' %>
+  <% end %>
+
+
+<ul>
+  <h3>Upcoming Events:</h3>
+  <% @upcoming.each do |e| %>
+    <li>
+      <h3> <%=link_to e.title, event_path(e) %></h3>
+      <small><%= e.event_date %></small><br>
+      <small>Created By:<%= e.creator.name %></small>
+    </li>
+  <% end %>
+</ul>
+
+<ul>
+<h3>Past Events:</h3>
+  <% @past.each do |e| %>
+    <li>
+      <h3> <%=link_to e.title, event_path(e) %></h3>
+      <small><%= e.event_date %></small><br>
+      <small>Created By:<%= e.creator.name %></small>
+    </li>
+  <% end %>
+</ul>

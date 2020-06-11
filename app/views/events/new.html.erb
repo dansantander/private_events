@@ -1,0 +1,8 @@
+<h1>New Event</h1>
+
+<%= form_for @event, :url => events_path do |f| %>
+  Title: <%= f.text_field :title %><br/>
+  Event Date: <%= f.date_field :event_date %><br/>
+
+  SUBMIT: <%= f.submit "Create Event"%>
+<% end %>

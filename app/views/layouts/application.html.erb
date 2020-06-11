@@ -9,7 +9,34 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <nav>
+    <div class="links"> 
+      <p class = "navp"><%= link_to 'Events', events_path, class: 'off-white' %></p>
+      <% if current_user %>
+        <p class = "navp"> <%= link_to 'Create Event', new_event_path, class: 'off-white' %></p>
+        <p class ="navp"> <%= link_to 'Profile', user_path(current_user), class: 'off-white' %></p>
+      <% end %>
+    </div>
+
+    <div class="links">
+      <% if current_user %>
+
+        <%= form_for :session, url:logout_path do |f|%>
+          <%= f.submit "Logout", method: :delete %>
+        <% end %>
+
+      <% else %>
+        <p class = "navp"><%= link_to 'Sign Up', new_user_path, class: 'off-white' %></p>
+        <p class = "navp"><%= link_to 'Sign In', signin_path, class: 'off-white' %></p>
+      <% end %>
+    </div>
+  </nav>
+
   <body>
-    <%= yield %>
+  <%= flash.notice %>
+
+    <div class= "main">
+      <%= yield %>
+    </div>
   </body>
 </html>

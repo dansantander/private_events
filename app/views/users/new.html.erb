@@ -1,0 +1,9 @@
+<h1>Sing Up</h1>
+
+<%= form_for (@user), :url => users_path do |f| %>
+
+  Username: <%= f.text_field :name %><br/>
+  Email: <%= f.email_field :email %><br/>
+
+  SUBMIT: <%= f.submit "Create"%>
+<% end %>
